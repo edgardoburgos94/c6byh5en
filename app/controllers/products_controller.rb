@@ -19,6 +19,11 @@ class ProductsController < ApplicationController
     @product = Product.update(params[:id], product_params)
   end
 
+  def apiproduct
+    products = Product.all
+    render json: products 
+  end
+
   private
     def product_params
       params.require(:product).permit(:name, :price)
